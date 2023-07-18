@@ -33,7 +33,7 @@
             unset($_SESSION['message']);
             ?>
             <h1>Ajouter un produit</h1>
-            <form action="traitement.php" method="post">
+            <form action="traitement.php?action=add" method="post">
                 <p>
                     <label>
                         Nom du produit :

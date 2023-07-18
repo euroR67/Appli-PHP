@@ -25,7 +25,6 @@
     </header>
 
     <?php
-
         $total = getQtt();
 
         if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
@@ -51,9 +50,9 @@
                                 "<td>".$index."</td>",
                                 "<td>".$product['name']."</td>",
                                 "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td><a class='add'>+</a> ".$product['qtt']." <a class='add'>-</a></td>",
+                                "<td><a class='add' href='traitement.php?action=addOne'>+</a> ".$product['qtt']." <a class='add' href='traitement.php?action=deleteOne'>-</a></td>",
                                 "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td><a class='delete'>❌</a",
+                                "<td><a class='delete' href='traitement.php?action=deleteProduct'>❌</a",
                             "</tr>";
                         $totalGeneral+= $product['total'];
                     }
@@ -68,7 +67,4 @@
         }
 
     ?>
-
-    
-    </body>
 </html>

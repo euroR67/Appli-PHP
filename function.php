@@ -1,5 +1,5 @@
 <?php 
-
+    
     function getQtt() {
 
         $totalQtt = 0;
