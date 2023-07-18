@@ -19,7 +19,9 @@
 
             $_SESSION['products'][] = $product;
 
-            $_SESSION['message'] = "Produit ajouter avec succès";
+            $_SESSION['message'] = "<p class='succes'>Produit ajouter avec succès</p>";
+        } else {
+            $_SESSION['message'] = "<p class='succes'>Erreur, veuillez verifié les champs</p>";
         }
     }
 

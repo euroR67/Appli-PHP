@@ -27,7 +27,11 @@
             <?php 
             $total = getQtt();
             echo "<aside> <h3>Produits en session : ".$total."</h3></aside>";
-            echo "<p class='succes'>".$_SESSION['message']."</p>";
+            if(isset($_SESSION['products'])){
+                echo $_SESSION['message'];
+            } else {
+                echo $_SESSION['message'];
+            }
             ?>
             <h1>Ajouter un produit</h1>
             <form action="traitement.php" method="post">
