@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+
+    require 'function.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -19,6 +24,11 @@
         </header>
 
         <main>
+            <?php 
+            $total = getQtt();
+            echo "<aside> <h3>Produits en session : ".$total."</h3></aside>";
+            echo "<p class='succes'>".$_SESSION['message']."</p>";
+            ?>
             <h1>Ajouter un produit</h1>
             <form action="traitement.php" method="post">
                 <p>

@@ -1,5 +1,7 @@
 <?php 
     session_start();
+
+    require 'function.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +26,13 @@
 
     <?php
 
+        $total = getQtt();
+
         if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
             echo "<p>Aucun produit en session...</p>";
         } else {
             echo "<main>",
+                        "<aside> <h3>Produits en session : ".$total."</h3></aside>",
                         "<h2 class='titreRecap'>Produit ajouter</h2>",
                     "<table>",
                         "<thead>",

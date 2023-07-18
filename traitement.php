@@ -19,10 +19,10 @@
 
             $_SESSION['products'][] = $product;
 
+            $_SESSION['message'] = "Produit ajouter avec succès";
         }
-
     }
 
     header("Location:index.php");
 
-?>
+?> 
