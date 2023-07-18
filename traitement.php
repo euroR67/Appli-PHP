@@ -24,7 +24,13 @@
             $_SESSION['message'] = "<p class='succes'>Erreur, veuillez verifié les champs</p>";
         }
     }
-
+    
+    if($_GET['action'] === 'deleteAll') {
+        if(isset($_SESSION['products'])){
+            unset($_SESSION['products']);
+        }
+    }
+    
     header("Location:index.php");
-
+    
 ?> 

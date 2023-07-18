@@ -35,13 +35,13 @@ ul {
     gap: 15px;
 }
 
-a {
+header a {
     color: rgb(255, 255, 255);
     font-weight: 600;
     transition: all 0.5s;
 }
 
-a:hover {
+header a:hover {
     color: rgb(224, 223, 223);
 }
 
@@ -49,6 +49,10 @@ main {
     background-color: rgb(235, 233, 233);
     padding: 10px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 form {
@@ -103,11 +107,32 @@ main h1 {
     text-align: center;
 }
 
+tr td a {
+    color: white;
+    display: inline-block;
+    width: 18px;
+    border: none;
+    background-color: rgba(57, 68, 96, 0.82);
+}
+
+.delete {
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.deleteAll {
+    background-color: rgba(232, 232, 232, 0);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: rgb(215, 9, 9);
+}
+
 /* ========================== RECAP.PHP ========================== */
 
 table {
     /* border: 1px solid black; */
     width: 100%;
+    margin-bottom: 8px;
 }
 
 th {
@@ -228,6 +253,11 @@ aside {
         position: absolute;
         top:0;
         left: 0;
+    }
+
+    .deleteAll {
+        display: inline-block;
+        border: 1px solid black;
     }
 
 }

@@ -44,15 +44,16 @@
                                 "<th style='width:25%'>Total</th>",
                             "</tr>",
                         "</thead>",
-                    "</body>";
+                    "<body>";
                     $totalGeneral = 0;
                     foreach($_SESSION['products'] as $index => $product) {
                         echo "<tr>",
                                 "<td>".$index."</td>",
                                 "<td>".$product['name']."</td>",
                                 "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td>".$product['qtt']."</td>",
+                                "<td><a class='add'>+</a> ".$product['qtt']." <a class='add'>-</a></td>",
                                 "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
+                                "<td><a class='delete'>❌</a",
                             "</tr>";
                         $totalGeneral+= $product['total'];
                     }
@@ -62,6 +63,7 @@
                         "</tr>";
                     echo "</tbody>",
                     "</table>",
+                    "<a href='traitement.php?action=deleteAll'>Tout supprimer</a>",
                 "</main>";
         }
 
