@@ -1,34 +1,17 @@
 <?php 
+    ob_start();
     session_start();
 
     require 'function.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Récapitulatif des produits</title>
-    </head>
-    <body>
-
-    <header>
-            <nav>
-                <h1>PHP.App</h1>
-                <ul>
-                    <li><a href="index.php">AJOUT PRODUIT</a></li>
-                    <li><a href="recap.php">PANIER</a></li>
-                </ul>
-            </nav>
-    </header>
-
     <?php
         $total = getQtt();
 
         if(!isset($_SESSION['products']) || empty($_SESSION['products'])) {
-            echo "<p>Aucun produit en session...</p>";
+            echo "<main>",
+                        "<aside> <h3>Produits en session : ".$total."</h3></aside>",
+                        "<h2 class='titreRecap'>Aucun produit ajouter</h2>",
+                    "</main>";
         } else {
             echo "<main>",
                         "<aside> <h3>Produits en session : ".$total."</h3></aside>",
@@ -47,12 +30,24 @@
                     $totalGeneral = 0;
                     foreach($_SESSION['products'] as $index => $product) {
                         echo "<tr>",
+                                
+                                // insère l'index du produit dans le tableau
                                 "<td>".$index."</td>",
+
+                                // insère le nom du produit dans le tableau
                                 "<td>".$product['name']."</td>",
+
+                                // insère le prix du produit dans le tableau
                                 "<td>".number_format($product['price'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td><a class='add' href='traitement.php?action=addOne'>+</a> ".$product['qtt']." <a class='add' href='traitement.php?action=deleteOne'>-</a></td>",
+
+                                // insère la quantité du produit dans le tableau et ajoute les boutons + et -
+                                "<td><a class='add' href='traitement.php?action=addOne&id=$index'>+</a> 
+                                ".$product['qtt'].
+                                " <a class='add' href='traitement.php?action=deleteOne&id=$index'>-</a></td>",
                                 "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
-                                "<td><a class='delete' href='traitement.php?action=deleteProduct'>❌</a",
+                                // insère l'image du produit dans le tableau avec un <td> et un <img>
+                                "<td><img src='upload/".$_SESSION['products'][$index]['image']."' width='100px'></td>",
+                                "<td><a class='delete' href='traitement.php?action=deleteProduct&id=$index'>❌</a></td>",
                             "</tr>";
                         $totalGeneral+= $product['total'];
                     }
@@ -65,6 +60,6 @@
                     "<a href='traitement.php?action=deleteAll'>Tout supprimer</a>",
                 "</main>";
         }
-
+    $contenu = ob_get_clean();
+    require_once('template.php');
     ?>
-</html>

@@ -100,11 +100,20 @@ main h1 {
 }
 
 .succes {
-    background-color: rgb(209, 206, 206);
+    background-color: rgb(58, 237, 106);
     padding: 5px;
     border-radius: 5px;
     width: fit-content;
     text-align: center;
+}
+
+.fail {
+    background-color: rgb(226, 54, 54);
+    padding: 5px;
+    border-radius: 5px;
+    width: fit-content;
+    text-align: center;
+    color: white;
 }
 
 tr td a {
